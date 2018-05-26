@@ -1,12 +1,10 @@
-/*
- * Decompiled with CFR 0_118.
- */
+
 package com.ocularminds.expad.model;
 
 import java.io.Serializable;
 
-public class Account
-implements Serializable {
+public class Account implements Serializable {
+
     private String accountName;
     private String accountNumber;
     private String schemeCode;
