@@ -1,0 +1,35 @@
+<#macro page>
+<html>
+    <head>
+        <title>${title}</title>
+    </head>
+    <body>
+        <h1>${title}</h1>
+        <#-- This processes the enclosed content:  -->
+        <#nested>
+    </body>
+</html>
+</#macro>
+<#macro parameters p1 p2>
+<p>The parameters were: ${p1}, ${p2}</p>
+</#macro>
+<#macro header title>
+<head>
+    <title>ExPad : Instant Card Issuance Solution | ${title}</title>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta content="MSHTML 6.00.2900.2769" name=GENERATOR>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/jquery.gritter.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/favicon.ico" rel="SHORTCUT ICON">
+    <link href="/favicon.ico" type=image/ico rel=icon>
+    <style>
+        input.form-control{font-size:20px;}
+        a.body-text{font-size:16px;color:#ffffff;}
+        #login-placeholder{;
+        }</style>
+</head>
+</#macro>

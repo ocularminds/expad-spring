@@ -1,0 +1,69 @@
+<#import "screen.html" as template>
+<@template.screen user=user modules=modules>
+<script type="text/javascript">$('#data-table').DataTable({"processing": true, "deferLoading": 57});</script>
+<div class="table-responsive" id="table-list">
+    <h1>Product Records</h1>
+    <table class="table table-stripped" id="data-table" width="100%">
+        <thead>
+            <tr>
+                <th><input name="operation" type="button" class="btn btn-primary btn-sm"  value="Add New" id="btn-add"></th>
+                <th>CODE</th>
+                <th>BIN</th>
+                <th>NAME</th>
+                <th>CURRENCY</th>
+            </tr>
+        </thead>
+        <tbody>
+            <#list products as product>
+            <tr>
+                <td><a href="/expad/services/cards/api/products/${product.getId()}" class="btn btn-default detail-link">${product.getId()}</a></td>
+                <td><#if product.getCode()??>${product.getCode()}</#if></td>
+                <td><#if product.getBin()??>${product.getBin()}</#if></td>
+                <td><#if product.getName()??>${product.getName()}</#if></td>
+                <td><#if product.getCurrencyCode()??>${product.getCurrencyCode()}</#if></td>
+            </tr>
+            </#list>
+        </tbody>
+    </table>
+</div>
+<form id="_form" action="/expad/services/cards/products" method="POST" style="display:none;">
+    <input type="hidden" name="id" value="" />
+    <div class="row">
+        <div class="col-md-12 text-center"><h2>Product Detail</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Product Code </div>
+        <div class="col-md-3"><input class="form-control" id="code" name="code" size="15" maxlength="42" value="" type="text" /></div>
+        <div class="col-md-3">Product Name</div>
+        <div class="col-md-3"><input class="form-control" id="name" name="name" size="32" maxlength="42" value="" type="text" /></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Product Bin</div>
+        <div class="col-md-3"><input class="form-control" id="bin" name="bin" size="15" maxlength="15" value="" type="text" /></div>
+        <div class="col-md-3">Pan Format</div>
+        <div class="col-md-3">
+            <select name="format" id="format">
+                <option value="0">BRANCH_PRODUCT_RANDOM_FORMAT</option>
+                <option value="1">BRANCH_RANDOM_PRODUCT_FORMAT</option>
+                <option value="2">PRODUCT_BRANCH_RANDOM_FORMAT</option>
+                <option value="3">PRODUCT_RANDOM_BRANCH_FORMAT</option>
+                <option value="4">RANDOM_BRANCH_PRODUCT_FORMAT</option>
+                <option value="5">RANDOM_PRODUCT_BRANCH_FORMAT</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Inactive Card Code</div>
+        <div class="col-md-3"><input class="form-control" id="inactiveCode" name="inactiveCardCode" size="15" maxlength="6" value="" type="text" /></div>
+        <div class="col-md-3">Currency Code</div>
+        <div class="col-md-3"><input class="form-control" id="currency" name="currency" size="15" maxlength="5" value="" type="text" /></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Trailing text(pppp or ssspppp)</div>
+        <div class="col-md-3"><input class="form-control" name="trailingText" size="15" maxlength="15" value="" type="text" /></div>
+        <div class="col-md-4"><input name="operation" type="submit" class="btn btn-primary btn-save"  value="Save"/>&nbsp;
+            <a href="/expad/services/cards/product" class="btn btn-primary"id="cls-btn">Close</a>
+        </div>
+</form>
+<script language="javascript" src="/expad/scripts/form.js"></script>
+</@template.screen>

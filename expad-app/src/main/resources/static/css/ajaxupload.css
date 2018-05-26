@@ -1,0 +1,255 @@
+/***for wordpress***/
+.real-ajax-uploader{
+	text-align:center;
+	border: 4px dashed #DDDDDD;
+}
+/********************/
+
+
+.ax-file-list
+{
+	overflow:hidden;
+    list-style: none outside none;
+    padding:0;
+	margin:0 auto;
+	width:330px;
+}
+
+.ax-browse-c{
+	overflow: hidden;
+	position:relative;
+}
+
+.ax-upload-all
+{
+	margin-left:5px;
+}
+
+.ax-clear
+{
+	margin-left:5px;
+}
+
+
+
+.ax-remove, .ax-upload, .ax-abort, .ax-confirm
+{
+	margin-left:5px;
+}
+
+.ax-disabled
+{
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+	cursor:auto;
+}
+
+.ax-confirm
+{
+	display:none;
+}
+
+
+.ax-preview
+{
+
+}
+
+.ax-file-list li:hover
+{
+
+}
+
+.ax-file-list li
+{
+	    text-align:center;
+	    margin: 0 2px 2px 0;
+	    padding: 2px;
+}
+
+
+.ax-file-name
+{
+    overflow: hidden;
+}
+
+.ax-file-name input
+{
+	width:80%;
+}
+
+.ax-file-size
+{
+    overflow: hidden;
+}
+
+.ax-progress
+{
+ 	float: right;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    position: relative;
+    text-align: center;
+    width: 140px;
+}
+
+.ax-progress-bar
+{
+    height: 14px;
+	border-radius: 2px;
+	position:absolute;
+	top:0;
+	left:0;
+	width: 0%; 
+}
+
+.ax-progress-info
+{
+	font: 12px 'PT Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    height: 13px;
+    position:absolute;
+    width: 100%;
+    top:0;
+	left:0;
+}
+
+
+.ax-toolbar
+{
+	overflow:hidden;
+	float:left;
+}
+
+.ax-browse
+{
+	opacity: 0;
+	filter:alpha(opacity=0);
+	font-size:50px;
+	cursor:pointer;
+	height:50px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.ax-prev-container
+{
+	height:60px;
+    width: 60px;
+    display: inline-block;
+    background: url(icons.png) no-repeat;
+}
+
+.ax-details
+{
+	float: left;
+    width: 236px;
+}
+
+/*************************************Light Box CSS***************************************/
+#ax-box 
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #fff;
+	z-index: 1001;
+	display: none;
+	border:2px solid #000;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
+	
+  -webkit-box-shadow: 0px 0px 21px 0px #ffffff; /* Saf3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+     -moz-box-shadow: 0px 0px 21px 0px #ffffff; /* FF3.5 - 3.6 */
+          box-shadow: 0px 0px 21px 0px #ffffff; /* Opera 10.5, IE9, FF4+, Chrome 6+, iOS 5 */
+	
+}
+
+#ax-box-shadow 
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	filter: alpha(opacity=75);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+	z-index: 1000;
+	display: none;
+}
+
+#ax-box-close
+{
+	top:0px;
+	right:0px;
+	position:absolute;
+	cursor:pointer;
+	border-radius:15px;
+}
+
+#ax-box-fn
+{
+    background: none repeat scroll 0 0 black;
+    bottom: 0;
+    color: white;
+    height: 38px;
+    left: 0;
+    opacity: 0.8;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 15;
+}
+
+#ax-box-fn span
+{
+    display: block;
+    font-family: 'Volkhov',Georgia,sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 38px;
+    padding: 0 20px;
+}
+/*****************************************************************************************************/
+
+/*************************************File Type Icons*************************************************/
+.ax-filetype-pdf{
+	background: url(icons.png) no-repeat -243px 0;
+}
+
+.ax-filetype-zip,.ax-filetype-rar, .ax-filetype-7zip, .ax-filetype-jar{
+	background: url(icons.png) no-repeat -548px 0;
+}
+.ax-filetype-doc, .ax-filetype-docx{
+	background: url(icons.png) no-repeat -122px 0;
+}
+.ax-filetype-exe{
+	background: url(icons.png) no-repeat -183px 0;
+}
+.ax-filetype-xls, .ax-filetype-xlsx{
+	background: url(icons.png) no-repeat 0 0;
+}
+
+.ax-filetype-avi, .ax-filetype-mp4, .ax-filetype-mpeg, .ax-filetype-wmv{
+	background: url(icons.png) no-repeat -487px 0;
+}
+
+.ax-filetype-png, .ax-filetype-gif, .ax-filetype-bmp, .ax-filetype-tiff, .ax-filetype-jpg{
+	background: url(icons.png) no-repeat -365px 0;
+}
+
+.ax-filetype-mp3, .ax-filetype-wav, .ax-filetype-wma{
+	background: url(icons.png) no-repeat -304px 0;
+}
+.ax-filetype-ppt, .ax-filetype-pptx{
+	background: url(icons.png) no-repeat -61px 0;
+}
+
+.ax-filetype-txt, .ax-filetype-ini, .ax-filetype-xml{
+	background: url(icons.png) no-repeat -426px 0;
+}

@@ -1,0 +1,52 @@
+<#import "screen.html" as template>
+<@template.screen user=user modules=modules>
+<script type="text/javascript">$('#data-table').DataTable({"processing": true, "deferLoading": 57});</script>
+<div class="table-responsive" id="table-list">
+    <center><h1>Merchant Records</h1></center>
+    <table class="table table-stripped" data-pagination="true" data-flat="true" id="data-table">
+        <thead>
+            <tr>
+                <th><input name="btn-add" type="button" class="btn btn-primary btn-sm"  value="Add New" onclick="window.location = '/expad/services/merchant/0"/></th>
+                <th>SHORT NAME</th>
+                <th>PROFILE NAME</th>
+                <th>LOCATION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <#list merchants as merchant>
+            <tr>
+                <td><a href="/expad/services/admin/api/merchant/${merchant.getId()}" class="btn btn-default detail-link">${merchant.getId()}</a></td>
+                <td>${merchant.getAcronymn()}</td>
+                <td>${merchant.getName()}</td>
+                <td><#if merchant.getLocation()??>${merchant.getLocation()}</#if></td>
+            </tr>
+            </#list>
+        </tbody>
+    </table>
+</div>
+<form id="_form" action="/expad/services/admin/merchant" method="post" style="display:none;">
+    <input type="hidden" name="id" value="">
+    <div class="row">
+        <div class="col-md-12"><strong>Merchant Detail </strong>
+            <p><span class="regerror"> INFO: To edit this profile, simply change the affected fields and click the <strong>SAVE</strong> button.</span></p></div>
+    </div>
+    <div class="row">
+        <div class="col-md-5"><b>Name :</b></div>
+        <div class="col-md-7"><input class="form-control" id="name" name="name" size="15" value="" type="text" /></div>
+    </div>
+    <div class="row">
+        <div class="col-md-5"><b>Short Name</b></div>
+        <div class="col-md-7"><input class="form-control" id="acronymn" name="acronymn" size="35" value="" type="text" /></div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">Location</div>
+        <div class="col-md-7"><input class="form-control" id="location" name="location" size="35" value="" type="text" /></div>
+    </div>
+    <div class="row">
+        <div class="col-md-7 col-md-offset-5">
+            <input name="Button" type="button" class="btn btn-primary" value="Close" onclick="window.location = '/expad/services/admin/merchant'"/>&nbsp;
+            <input name="operation" type="submit" class="btn btn-primary" value="Save"/></div>
+    </div>
+</form>
+<script language="javascript" src="/expad/scripts/form.js"></script>
+</@template.screen>

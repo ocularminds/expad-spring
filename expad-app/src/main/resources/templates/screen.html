@@ -1,0 +1,98 @@
+<#macro screen user modules>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ExPad : Instant Card Issuance Solution | Ocular-Minds Softwares</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/css/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+        <link href="/css/icomoon/icomoon.css" rel="stylesheet"/>
+        <link href="/css/toastr.min.css" rel="stylesheet"/>
+        <link href="/css/jquery.gritter.css" rel="stylesheet"/>
+        <link href="/css/animate.css" rel="stylesheet"/>
+        <link href="/css/style.css" rel="stylesheet"/>
+        <link href="/datatables/dataTables.bootstrap.min.css" rel="stylesheet"/>
+        <script type="text/javascript" src="/scripts/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.slimscroll.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.flot.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.flot.tooltip.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.flot.spline.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.flot.resize.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.flot.pie.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.peity.min.js"></script>
+        <script type="text/javascript" src="/scripts/peity-demo.js"></script>
+        <script type="text/javascript" src="/scripts/pace.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.gritter.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery.sparkline.min.js"></script>
+        <script type="text/javascript" src="/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/datatables/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="/scripts/sparkline-demo.js"></script>
+        <script type="text/javascript" src="/scripts/Chart.min.js"></script>
+        <script type="text/javascript" src="/scripts/toastr.min.js"></script>
+        <script type="text/javascript" src="/scripts/app.scripts.js"></script>
+    </head>
+    <body style="background-color:#4a4a4a;height: 100%;">
+        <header class="top" role="header" style="background-color:#ffffff;">
+            <div class="panel-default panel-header">
+                <nav class="navbar-collapse collapse" role="navigation">
+                    <ul class="navbar-nav nav pull-left">
+                        <li>
+                            <h1>Fidelity Bank Plc</h1>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="navbar-nav nav pull-right">
+                        <li><a style="color:#000000;font-weight:bold;">Welcome,&nbsp;${user.getFullName()}</a></li>
+                        <li><a href="#" style="color:#000000;">How-To Documents</a></li>
+                        <li><a href="/admin/password" style="color:#000000;">CHANGE PASSWORD </a></li>
+                        <li><a href="/signout" style="color:#000000;"><i class="fa fa-power-off" style="color:red;font-size:18px;"></i>&nbsp;SIGN OUT </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <p>&nbsp;</p>
+        <div id="wrapper">
+            <div class="container-fluid" style="top:200px;">
+                <div class="row content">
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="side-bar">
+                            <ul class=panel-group id=side-nav>
+                                <li class=active><a href=# aria-expanded=true ng-click="dashboard()">
+                                        <span class="sidebar-nav-item-icon fa fa-dashboard fa-lg" style=color:#4bcc28;></span>
+                                        <span class=sidebar-nav-item><b>Dashboard</b></span></a>
+                                </li>
+                                <#list modules as module>
+                                <li>
+                                    <a data-toggle="collapse" data-parent="#side-nav" href="#collapse${module.getId()}" class="has-arrow" ng-click="dashboard()">
+                                        <i class="icon-stack2"></i> <span class=menu-item>${module.getName()}</span> <span class=down-arrow></span>
+                                        </a>
+                                        <ul id="collapse${module.getId()}" class="panel-collapse collapse">
+                                            <#list module.getPermissions() as permission>
+                                            <li><a href=${permission.getUrl()}>${permission.getDescription()}</a></li>
+                                            </#list>
+                                        </ul>
+                                    </li>
+                                    </#list>
+                                    <li><a href="/signout"><span class="glyphicon glyphicon-off" aria-hidden=true></span>&nbsp;Sign Out</a></li>
+                                    <li>
+                                        <a href="#" style="font-size:14px;color:#000000;"><i class="fa fa-lock"></i> <span class="nav-label">My Password</span><span class="fa arrow"></span></a>
+                                    </li>
+                                    <li><a href="#"><img src="/images/ocular_logoSmall.jpg"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <#nested>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+    </#macro>

@@ -1,0 +1,14 @@
+## YAML Template.
+---
+server:
+    context-path: /expad
+spring: 
+    main:
+        banner-mode: "off"       
+    datasource:
+        platform: h2
+
+logging: 
+    level: 
+        org: 
+            springframework: ERROR

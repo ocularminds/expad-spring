@@ -1,0 +1,12 @@
+<form action="expad/services/bulk/action" method="post" enctype="multipart/form-data">
+<div class="row">
+    <div class="col-md-12 text-center"><h1>Bulk Card Upload Step 2 of 2</h1></div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+    <input type="file" name="upload" />
+    <input name="but00" class="btn btn-default" value="Close" type="button" onclick="window.location='/expad/services/main'"/>
+    <input name="but01" class="btn btn-primary" value="Process File" type="submit" onclick='showBusyStatus()'/>
+  </div>
+</div>
+</form>

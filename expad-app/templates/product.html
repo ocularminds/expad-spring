@@ -1,0 +1,37 @@
+<script type="text/javascript">$('#data-table').DataTable({"processing": true, "deferLoading": 57});</script>
+<form action="screen.jsp" method="POST"/>
+<input type="hidden" name="id" value="<%=id%>" />
+<input type="hidden" name="np" value="productDetail" />
+<div class="row">
+    <div class="col-md-12 text-center"><h2>Product Detail</h2></div>
+</div>
+<div class="row">
+    <div class="col-md-3">Product Code </div>
+    <div class="col-md-3"><input class="form-control" id="code" name="code" size="15" maxlength="42" value="<%=product.getCode()%>" type="text" /></div>
+    <div class="col-md-3">Product Name</div>
+    <div class="col-md-3"><input class="form-control" id="name" name="name" size="32" maxlength="42" value="<%=product.getName()%>" type="text" /></div>
+</div>
+<div class="row">
+    <div class="col-md-3">Product Bin</div>
+    <div class="col-md-3"><input class="form-control" id="bin" name="bin" size="15" maxlength="15" value="<%=product.getBin()%>" type="text" /></div>
+    <div class="col-md-3">Pan Format</div>
+    <div class="col-md-3">
+        <select name="format" id="format">
+            <%=htmlUtil.getResources("","SELECT FORMAT,FORMAT_DESC FROM FORMATS ORDER BY 1 ")%>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">Inactive Card Code</div>
+    <div class="col-md-3"><input class="form-control" id="inactive_code" name="inactive_code" size="15" maxlength="6" value="<%=product.getInActiveCardCode()%>" type="text" /></div>
+    <div class="col-md-3">Currency Code</div>
+    <div class="col-md-3"><input class="form-control" id="currency" name="currency" size="15" maxlength="5" value="<%=product.getCurrencyCode()%>" type="text" /></div>
+</div>          
+<div class="col-md-3">
+    <div class="col-md-3">Trailing text(pppp or ssspppp)</div>
+    <div class="col-md-3"><input class="form-control" name="trail_text" size="15" maxlength="15" value="<%=product.getTrailingText()%>" type="text" /></div>
+    <div class="col-md-3"><input name="operation" type="submit" class="btn btn-primary"  value="Save"/>
+        &nbsp;
+        <input name="Button" type="button" class="btn btn-primary" value="Close" onclick="window.location = 'screen.jsp?np=products'"/></div>
+</div>
+</form>
